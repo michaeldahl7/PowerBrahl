@@ -1,9 +1,17 @@
-
 language: objective-c
 osx_image: xcode61
 rvm:
 - 2.1.2
 install:
-- ./Scripts/install.sh
+- "./Scripts/install.sh"
 script:
-- ./Scripts/build.sh
+- "./Scripts/build.sh"
+deploy:
+  provider: s3
+  access_key_id: AKIAIUJJCIWSHJPJ6P2A
+  secret_access_key:
+    secure: Pkq2umGcUvJIepOtoIMtDp3PYw8jbeKyKbWBxJjQ05KBRTY6qcUW/qo2brcSUacDsOf+ZMymknszzanMoUK4C7rilQc3zy6aaIp7WCaobMi4qvdGrlOaGBVdHL+253hFWvjnkfwaZ8VGHgl/ZkeKQ7ZIPu1EUIycT1U09mjb1+5bmkc2WXDnr01zmfKfNeTv5t7JSwUz3NJiKZH0eKFl8TQKIiJwiIGAIcYGSnFOsEu7tlGLGM/U24jfMnJrtuiziEtDYyVSIpv46OKhekLVGWs8/iF/XpeEe2Wc/qNO9FEZzGd2RSsjuI5rq+H6ai/8kaE9l7CSDAPKUUWV1rjVgtTHyabD/3t0SYuN3cHI95IWvqS6m0bxAeLU1XXrBzpaF60nVGezJuAmR2FQLfVoYP3AWA4SFDvwKZATc8EnkLYWFt+RIVPtlqSUpuE1W7DHWBVgWZscEkOoXpADjrGb9fsLsK5qkYD7KZYmbbVpuNXSe1CFZrcKwmUBHoUuvYK148Lt0PZH2GbEtLCPl6qPZ7LTIe+0+lzo43XmtGZfvIHhdbcqcbwHGSwzhSeqLkny8hKBZY7s16dKxUPjMHRb+B2Pl2UGKMqza3hesGU6n6SHhtjLhSyzG1M1TMMfn4R/pRWzEB4wXevGtx9vHj/z7p1Kz7+8JZLHHcYH1kwZRds=
+  bucket: powerbrahl.bucket
+  acl: ''
+  on:
+    repo: michaeldahl7/PowerBrahlProject
