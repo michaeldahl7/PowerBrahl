@@ -14,6 +14,6 @@ deploy:
   bucket: powerbrahl.bucket
   skip_cleanup: true
   region: us-west-1
-  acl: private
+  acl: public-read
   on:
     repo: michaeldahl7/PowerBrahlProject
