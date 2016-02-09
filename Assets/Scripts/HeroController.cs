@@ -4,17 +4,16 @@ using UnityEngine.UI;
 
 public class HeroController : MonoBehaviour
 {
-
 	public float maxSpeed;
 	private bool facingRight = true;
 	Rigidbody2D Body;
 	Animator anim;
 	bool isGrounded = false;
 	public Transform groundCheck;
-	float groundRadius = .2f;
+	float groundRadius = .1f;
 	public LayerMask whatIsGround;
 	public float jumpForce;
-	public Transform abovePoint;
+	public Transform abovePoint;            //point for direction to snap to
 	public Transform belowPoint;
 	public Transform upperRightPoint;
 	public Transform bottomRightPoint;
@@ -23,19 +22,25 @@ public class HeroController : MonoBehaviour
 	public bool bowEquipped;
 	public Transform bowOpeningLocation;
 	public int playerNumber;
-	private string horizontalString;
-	private string jumpString;
+	private string horizontalString;        //horizontal input string for determining multiple player input SEE determineCharacterInput method
+	private string jumpString;              //jump string for input
 	private float attackCoolDown;
 	public float playerHealth = 100;
 	private bool isDead = false;
-	public int bowRotateSpeed = 5;
+    public int bowRotateSpeed = 5;
 	public float arrowDamage = 2;
 	public Image healthBarImage;
+    private int jumpCount;
+    private int arrowMax = 5;
+    private int currentArrowAmount = 5;
+    public RectTransform arrowDisplayPanel;
+    public PowerBrahlManager PBmanager;
 
-	
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
 	{
+        PBmanager = GetComponent<PowerBrahlManager>();
 		//healthBarImage = healthBarGameObject.GetComponent<Image>();
 		Body = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
@@ -60,6 +65,11 @@ public class HeroController : MonoBehaviour
 	void FixedUpdate ()
 	{
 		isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+        if (isGrounded)     //Resets jumpcount when player touches back down.
+        {
+            jumpCount = 0;
+        }
+        Debug.Log("Grounded: " + isGrounded);
 		anim.SetBool ("Ground", isGrounded);
 
 		anim.SetFloat ("vSpeed", Body.velocity.y);
@@ -143,8 +153,12 @@ public class HeroController : MonoBehaviour
 
 	void Jump ()
 	{
-		anim.SetBool ("Ground", false);
-		Body.AddForce (new Vector2 (0, jumpForce)); 
+        if (jumpCount < 1)
+        {
+            anim.SetBool("Ground", false);
+            Body.AddForce(new Vector2(0, jumpForce));
+            jumpCount++;
+        }
 	}
 
 	void Attack ()

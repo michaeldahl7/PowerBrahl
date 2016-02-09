@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.33000004, y: 1.25999999, z: 0}
+  m_LocalPosition: {x: -1.33, y: 1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,9 +40,10 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197604}
+  m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0.05
   m_GravityScale: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -56,12 +57,13 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197604}
   m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .0399999991, y: -.159999996}
+  m_Offset: {x: 0.04, y: -0.16}
   serializedVersion: 2
-  m_Radius: .230000004
+  m_Radius: 0.23
 --- !u!61 &6135510
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -69,12 +71,13 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197604}
   m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .170000002}
+  m_Offset: {x: 0, y: 0.17}
   serializedVersion: 2
-  m_Size: {x: .5, y: .400000006}
+  m_Size: {x: 0.5, y: 0.4}
 --- !u!95 &9557808
 Animator:
   serializedVersion: 3
@@ -122,6 +125,7 @@ MonoBehaviour:
   bowRotateSpeed: 5
   arrowDamage: 2
   healthBarImage: {fileID: 0}
+  arrowDisplayPanel: {fileID: 0}
 --- !u!212 &21237652
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -140,14 +144,18 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300080, guid: 600216030b7584181afa3079013fb79b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
