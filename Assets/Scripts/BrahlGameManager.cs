@@ -2,18 +2,14 @@
 using System.Collections;
 
 public class PowerBrahlManager : MonoBehaviour {
-	public GameObject[] heroArray;
     public static PowerBrahlManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
-    public ArrowDisplayPanel arrowDisplayPanel;
-    public delegate void Event();
-    public static event Event onEventOccur;
     //Awake is always called before any Start functions
 /*    void Awake()
     {
         //Check if instance already exists
         if (instance == null)
 
-            //if not, set instance to this
+            //if not, set instance to thi
             instance = this;
 
         //If instance already exists and it's not this:

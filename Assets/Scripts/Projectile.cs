@@ -1,30 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
+[System.Serializable]
 public class Projectile : MonoBehaviour
 {
-
-	public int projectileSpeed = 50;
+	public int speed;
+	public GameObject prefab;
 	public Rigidbody2D rigidBody;
-	// Use this for initialization
-	void Start ()
-	{
-		rigidBody = GetComponent<Rigidbody2D> ();
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		//transform.rotation = Quaternion.LookRotation(rigidBody.velocity);
+	public PolygonCollider2D collider2d;
+	public int damage;
+	public int playerNumber;
+
+	void Start () {
+		
+		this.speed = 1000;
+		this.damage = 50;
+		collider2d = GetComponent<PolygonCollider2D>();
+		this.playerNumber = 0; 	//hard coded must think of a way to grab
 	}
 
-	void OnCollisionEnter2D (Collision2D collider)
+	void OnCollisionEnter2D(Collision2D collider)
 	{
-		if (collider.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			Debug.Log ("this was reached");
-			Destroy (gameObject);
+		if(collider.gameObject.tag == "Player"){
+			EventManagerIntArg.TriggerEvent("ArrowCollide", damage);
 		}
 	}
-
-
 }
+
+
+
+
+

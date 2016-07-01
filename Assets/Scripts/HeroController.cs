@@ -2,194 +2,161 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class HeroController : MonoBehaviour
+public class HeroController : MonoBehaviour, ICharacterPhysics, IWeaponHandler
 {
-	public float maxSpeed;
-	private bool facingRight = true;
-	Rigidbody2D Body;
-	Animator anim;
-	bool isGrounded = false;
-	public Transform groundCheck;
-	float groundRadius = .1f;
-	public LayerMask whatIsGround;
-	public float jumpForce;
-	public Transform abovePoint;            //point for direction to snap to
-	public Transform belowPoint;
-	public Transform upperRightPoint;
-	public Transform bottomRightPoint;
-	public Transform rightPoint;
-	public Transform bow;
-	public bool bowEquipped;
-	public Transform bowOpeningLocation;
-	public int playerNumber;
-	private string horizontalString;        //horizontal input string for determining multiple player input SEE determineCharacterInput method
-	private string jumpString;              //jump string for input
-	private float attackCoolDown;
-	public float playerHealth = 100;
-	private bool isDead = false;
-    public int bowRotateSpeed = 5;
-	public float arrowDamage = 2;
-	public Image healthBarImage;
-    private int jumpCount;
-    private int arrowMax = 5;
-    private int currentArrowAmount = 5;
+	public Character character;
     public RectTransform arrowDisplayPanel;
     public PowerBrahlManager PBmanager;
 
-
-    // Use this for initialization
-    void Start ()
+	public void Move(float horizontal)
 	{
-        PBmanager = GetComponent<PowerBrahlManager>();
-		//healthBarImage = healthBarGameObject.GetComponent<Image>();
-		Body = GetComponent<Rigidbody2D> ();
-		anim = GetComponent<Animator> ();
-		determineCharacterInput ();
-		if (bow != null) {
-			bowEquipped = true;
+		character.rigidbody2d.AddForce(new Vector2(horizontal * character.movementProperties.movementSpeed,0));
+		if (horizontal > 0 && !character.facingRight)
+			Flip ();
+		else if (horizontal < 0 && character.facingRight) {
+			Flip ();
 		}
 	}
-
-	void determineCharacterInput ()
-	{
-		if (playerNumber == 1) {
-			horizontalString = "Horizontal";
-			jumpString = "Jump";
-		} else if (playerNumber == 2) {
-			horizontalString = "ShieldHorizontal";
-			jumpString = "ShieldJump";
-		}
+	public void GroundCheck(MovementProperties moveProperty){
+		moveProperty.isGrounded = Physics2D.OverlapCircle (moveProperty.groundCheck.position, moveProperty.groundRadius, moveProperty.whatIsGround);
+        if (moveProperty.isGrounded)     //Resets jumpcount when player touches back down.
+        {
+            moveProperty.jumpCount = 0;
+        }
+		character.anim.SetBool ("Ground", moveProperty.isGrounded);
 	}
-	
-	// Update is called once per frame
+	public void Jump ()
+	{
+		if (character.movementProperties.jumpCount < character.movementProperties.numOfJumps)
+        {
+            character.anim.SetBool("Ground", false);
+			character.rigidbody2d.AddForce(new Vector2(0, character.movementProperties.jumpForce));
+            character.movementProperties.jumpCount++;
+        }
+	}
+
+	public void Flip(){
+				character.facingRight = !character.facingRight;
+				Vector3 theScale = transform.localScale;
+				theScale.x *= -1;
+				transform.localScale = theScale;
+	}
+
+//	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
-        if (isGrounded)     //Resets jumpcount when player touches back down.
-        {
-            jumpCount = 0;
-        }
-        Debug.Log("Grounded: " + isGrounded);
-		anim.SetBool ("Ground", isGrounded);
-
-		anim.SetFloat ("vSpeed", Body.velocity.y);
-	
-		float horizontal = Input.GetAxis (horizontalString);
+		float horizontal = Input.GetAxis ("Horizontal");
 		float vertical = Input.GetAxis ("Vertical");
-		anim.SetFloat ("Speed", Mathf.Abs (horizontal));
-		Body.velocity = new Vector2 (horizontal * maxSpeed, Body.velocity.y);
+		Move(horizontal);
+		GroundCheck(character.movementProperties);
 
-		if(bowEquipped){
-			UpdateBowPosition(horizontal, vertical);
+		if (Input.GetButtonDown ("Jump")) {
+			Jump ();
 		}
 
-		if (horizontal > 0 && !facingRight)
-			Flip ();
-		else if (horizontal < 0 && facingRight) {
-			Flip ();
-			Quaternion tempRotation = new Quaternion ();		//Adjust bows rotation of flip
-			tempRotation = bowOpeningLocation.rotation;			//
-			tempRotation.z += 220;								//
-			bowOpeningLocation.rotation = tempRotation;			//
+		if (Input.GetButtonDown("ShootArrow")) {
+				Fire(character.weaponProperties.weapon);
 		}
-		if(healthBarImage){
-			healthBarImage.transform.position = abovePoint.position;
-		}
+
+		UpdateWeaponPosition(character.weaponProperties.weapon, vertical, character.lookPoints);
+		
+//
+//		anim.SetFloat ("vSpeed", Body.velocity.y);
+//		anim.SetFloat ("Speed", Mathf.Abs (horizontal));
+
+
+//		if(healthBarImage){
+//			healthBarImage.transform.position = abovePoint.position;
+//		}
 	}
 
-	void UpdateBowPosition(float horizontal, float vertical){
-		if (bow != null && bowEquipped) {
+	public void Fire(Weapon weapon)
+	{
+		if(weapon != null){
+				Projectile clone;
+				clone = Instantiate(weapon.projectile, weapon.openingLocation.position, weapon.openingLocation.rotation) as Projectile;	//creates the arrow on click, at the cannon opening
+				Rigidbody2D projectileRB = clone.GetComponent<Rigidbody2D>();
+				Vector3 relativePos = weapon.target.position - clone.transform.position;
+				projectileRB.AddForce(relativePos * clone.speed);
+		}
+	}
+	public void UpdateWeaponPosition(Weapon weapon, float vertical, LookPoints lookPoints){
+		if(weapon != null){
 			if (.55 > vertical && vertical > .10) {
-				bow.transform.position = Vector3.Lerp (bow.transform.position, upperRightPoint.position, 1);
-				bow.transform.rotation = Quaternion.Slerp (bow.transform.rotation, upperRightPoint.rotation, Time.deltaTime * bowRotateSpeed);
-				;
+				weapon.transform.position = Vector3.Lerp (weapon.transform.position, lookPoints.upperRightPoint.position, 1);
+				weapon.transform.rotation = Quaternion.Slerp (weapon.transform.rotation, lookPoints.upperRightPoint.rotation, Time.deltaTime * weapon.rotateSpeed);
 			} else if (vertical >= .55) {
-				bow.transform.position = Vector3.Lerp (bow.transform.position, abovePoint.position, 1);
-				bow.transform.rotation = Quaternion.Slerp (bow.transform.rotation, abovePoint.rotation, Time.deltaTime * bowRotateSpeed);
+				weapon.transform.position = Vector3.Lerp (weapon.transform.position, lookPoints.abovePoint.position, 1);
+				weapon.transform.rotation = Quaternion.Slerp (weapon.transform.rotation, lookPoints.abovePoint.rotation, Time.deltaTime * weapon.rotateSpeed);
 			} else if (-.10 >= vertical && vertical >= -1) {
-				bow.transform.position = Vector3.Lerp (bow.transform.position, bottomRightPoint.position, 1);
-				bow.transform.rotation = Quaternion.Slerp (bow.transform.rotation, bottomRightPoint.rotation, Time.deltaTime * bowRotateSpeed);
+				weapon.transform.position = Vector3.Lerp (weapon.transform.position, lookPoints.bottomRightPoint.position, 1);
+				weapon.transform.rotation = Quaternion.Slerp (weapon.transform.rotation, lookPoints.bottomRightPoint.rotation, Time.deltaTime * weapon.rotateSpeed);
 			} else {
-				bow.transform.position = Vector3.Lerp (bow.transform.position, rightPoint.position, 1);
-				bow.transform.rotation = Quaternion.Slerp (bow.transform.rotation, rightPoint.rotation, Time.deltaTime * bowRotateSpeed);
+				weapon.transform.position = Vector3.Lerp (weapon.transform.position, lookPoints.rightPoint.position, 1);
+				weapon.transform.rotation = Quaternion.Slerp (weapon.transform.rotation, lookPoints.rightPoint.rotation, Time.deltaTime * weapon.rotateSpeed);
 			}
 		}
 	}
-
-	void rotateTowards (Transform location, Transform target)
-	{
-		var newRotation = Quaternion.LookRotation (location.position - target.position);
-		newRotation.x = 0.0f;
-		newRotation.y = 0.0f;
-		location.rotation = Quaternion.Slerp (location.rotation, newRotation, Time.deltaTime * 80000);
+	public void SwitchWeapon(){
+		
 	}
-
-	void Update ()
-	{
-		if (Input.GetButtonDown (jumpString)) {
-			Jump ();
-		}
-		if (Input.GetButtonDown ("LinkMelee")) {
-			Attack ();
-		}
-		if (Input.GetButtonDown ("LinkBlock")) {
-			Block ();
-		}
-		if (Input.GetButtonUp ("LinkBlock")) {
-			anim.SetBool ("Block", false);
-		}
-		if (Input.GetButtonDown ("LinkSpin")) {
-			SpinAttack ();
-		}
+	public void SwitchProjectile(){
+		
 	}
+		
+//
+//	void Update ()
+//	{
+//		if (Input.GetButtonDown (jumpString)) {
+//			Jump ();
+//		}
+//		if (Input.GetButtonDown ("LinkMelee")) {
+//			Attack ();
+//		}
+//		if (Input.GetButtonDown ("LinkBlock")) {
+//			Block ();
+//		}
+//		if (Input.GetButtonUp ("LinkBlock")) {
+//			anim.SetBool ("Block", false);
+//		}
+//		if (Input.GetButtonDown ("LinkSpin")) {
+//			SpinAttack ();
+//		}
+//	}
+//
 
-	void Flip ()
-	{
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
+//
 
-	void Jump ()
-	{
-        if (jumpCount < 1)
-        {
-            anim.SetBool("Ground", false);
-            Body.AddForce(new Vector2(0, jumpForce));
-            jumpCount++;
-        }
-	}
-
-	void Attack ()
-	{
-		anim.SetTrigger ("OnAttack");
-	}
-
-	void Block ()
-	{
-		anim.SetBool ("Block", true);
-	}
-
-	void SpinAttack ()
-	{
-		anim.SetTrigger ("OnSpin");
-	}
-
-	void OnCollisionEnter2D(Collision2D collider){
-		if(collider.gameObject.tag == "Arrow"){
-			adjustHealth(arrowDamage);
-		}
-	}
-
-	void adjustHealth (float changeAmount)
-	{
-		playerHealth -= changeAmount;
-		Debug.Log(playerHealth);
-		updateHealthBar();
-	}
-
-	void updateHealthBar(){
-		healthBarImage.fillAmount = (playerHealth/100);
-	}
+//
+//	void Attack ()
+//	{
+//		anim.SetTrigger ("OnAttack");
+//	}
+//
+//	void Block ()
+//	{
+//		anim.SetBool ("Block", true);
+//	}
+//
+//	void SpinAttack ()
+//	{
+//		anim.SetTrigger ("OnSpin");
+//	}
+//
+//	void OnCollisionEnter2D(Collision2D collider){
+//		if(collider.gameObject.tag == "Arrow"){
+//			adjustHealth(arrowDamage);
+//		}
+//	}
+//
+//	void adjustHealth (float changeAmount)
+//	{
+//		playerHealth -= changeAmount;
+//		Debug.Log(playerHealth);
+//		updateHealthBar();
+//	}
+//
+//	void updateHealthBar(){
+//		healthBarImage.fillAmount = (playerHealth/100);
+//	}
 }
