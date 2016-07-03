@@ -22,7 +22,7 @@ using System.Collections;
 	}
 
 	public interface IWeaponHandler {
-		void Fire(Weapon weapon);
+		IEnumerator Fire(Weapon weapon);
 		void UpdateWeaponPosition(Weapon weapon, float vertical, LookPoints lookPoints);
 		void SwitchWeapon();
 		void SwitchProjectile();

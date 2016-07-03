@@ -101,7 +101,6 @@ GameObject:
   - 61: {fileID: 69407173}
   - 95: {fileID: 69407175}
   - 114: {fileID: 69407178}
-  - 114: {fileID: 69407179}
   m_Layer: 8
   m_Name: LinkCharacter
   m_TagString: Player
@@ -138,7 +137,7 @@ MonoBehaviour:
     weapon: {fileID: 142828874}
     isWeaponEquipped: 1
   movementProperties:
-    movementSpeed: 120
+    movementSpeed: 80
     turnSpeed: 0
     groundCheck: {fileID: 2115431679}
     groundRadius: 0.1
@@ -288,17 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fa1ddcda0064d28a57336e91eca98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &69407179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69407169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7ddf33a23c4b42a9b83b4282b280749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &78681261 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 140198, guid: 28140964c347d4944891d3b0abe5b9e4, type: 2}
@@ -342,7 +330,7 @@ GameObject:
   - 212: {fileID: 142828873}
   - 114: {fileID: 142828874}
   m_Layer: 8
-  m_Name: Bow
+  m_Name: StrongBow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,13 +380,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 142828872}
   projectile: {fileID: 11467062, guid: 1892fbb43860f429a9732c690890ef1f, type: 2}
-  projectileCount: 5
-  ready: 0
-  fireRate: 5
-  capacity: 0
+  projectileCount: 4
+  projectileCapacity: 4
+  ready: 1
+  fireRate: 1
+  damage: 1.2
   rotateSpeed: 10
   openingLocation: {fileID: 1576389767}
   target: {fileID: 1133852480}
+  projectiles: []
 --- !u!114 &286565166 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11413232, guid: 28140964c347d4944891d3b0abe5b9e4,
@@ -541,7 +531,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.92387944, w: -0.38268363}
   m_LocalPosition: {x: 0.05, y: 0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135}
   m_Children: []
   m_Father: {fileID: 69407177}
   m_RootOrder: 1
@@ -569,7 +559,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.92387956, w: 0.3826833}
   m_LocalPosition: {x: 0.26, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
   m_Children: []
   m_Father: {fileID: 69407177}
   m_RootOrder: 5
@@ -673,6 +663,49 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 783020306}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &1009087268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1009087270}
+  - 114: {fileID: 1009087269}
+  m_Layer: 0
+  m_Name: ProjectilePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1009087269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009087268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e562f8f5f9b6e454fa9a7de437694d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 11467062, guid: 1892fbb43860f429a9732c690890ef1f, type: 2}
+  pooledAmount: 10
+  pooledObjects: []
+--- !u!4 &1009087270
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009087268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.100000024, y: 2.4471679, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &1053984743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,8 +1127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722f2edf3778f1e459717799b4306c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
-  moveSpeed: 2
 --- !u!1001 &2103591553
 Prefab:
   m_ObjectHideFlags: 0

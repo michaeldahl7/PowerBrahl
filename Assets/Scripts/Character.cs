@@ -20,7 +20,6 @@ public class Character : MonoBehaviour, IDamageable, IKillable {
 	public void TakeDamage(int amount)
 	{
 		healthProperties.currentHealth -= amount;
-		Debug.Log("Health is now :" + healthProperties.currentHealth);
 		IsDead();
 	}
 	public void IsDead()
@@ -72,7 +71,3 @@ public class WeaponProperties
 	public Weapon weapon;
 	public bool isWeaponEquipped;
 }
-
-
-
-

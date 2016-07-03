@@ -55,7 +55,7 @@ public class HeroController : MonoBehaviour, ICharacterPhysics, IWeaponHandler
 		}
 
 		if (Input.GetButtonDown("ShootArrow")) {
-				Fire(character.weaponProperties.weapon);
+			StartCoroutine(Fire(character.weaponProperties.weapon));
 		}
 
 		UpdateWeaponPosition(character.weaponProperties.weapon, vertical, character.lookPoints);
@@ -70,16 +70,26 @@ public class HeroController : MonoBehaviour, ICharacterPhysics, IWeaponHandler
 //		}
 	}
 
-	public void Fire(Weapon weapon)
-	{
+
+	public IEnumerator Fire(Weapon weapon){
 		if(weapon != null){
-				Projectile clone;
-				clone = Instantiate(weapon.projectile, weapon.openingLocation.position, weapon.openingLocation.rotation) as Projectile;	//creates the arrow on click, at the cannon opening
-				Rigidbody2D projectileRB = clone.GetComponent<Rigidbody2D>();
-				Vector3 relativePos = weapon.target.position - clone.transform.position;
-				projectileRB.AddForce(relativePos * clone.speed);
+			if(weapon.projectileCount > 0 && weapon.ready){
+				weapon.ready = false;
+				Projectile obj = ProjectilePoolScript.current.getPooledProjectile();
+				if(obj == null) yield return null;
+				obj.gameObject.SetActive(true);
+				obj.transform.position = weapon.openingLocation.position;
+				obj.transform.rotation = weapon.openingLocation.rotation;
+				Vector3 relativePos = weapon.target.position - obj.transform.position;
+				Rigidbody2D projectileRB = obj.GetComponent<Rigidbody2D>();
+				projectileRB.AddForce(relativePos * obj.speed);
+				weapon.projectileCount--;
+				yield return new WaitForSeconds(weapon.fireRate);
+				weapon.ready = true;
+			}
 		}
 	}
+		
 	public void UpdateWeaponPosition(Weapon weapon, float vertical, LookPoints lookPoints){
 		if(weapon != null){
 			if (.55 > vertical && vertical > .10) {
