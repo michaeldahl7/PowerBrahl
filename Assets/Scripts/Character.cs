@@ -5,11 +5,12 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour, IDamageable, IKillable {
 
+
 	public WeaponProperties weaponProperties;
 	public MovementProperties movementProperties;
 	public HealthProperties healthProperties;
 	public int playerNumber;
-	public GameObject playerSprite;
+	public SpriteRenderer playerAvatar;
 	public Rigidbody2D rigidbody2d;
 	public LookPoints lookPoints;
 	[System.NonSerialized]
@@ -31,14 +32,22 @@ public class Character : MonoBehaviour, IDamageable, IKillable {
 		}
 	}
 
+	void ArrowPickup(int amount)
+	{
+		weaponProperties.weapon.projectileCount += amount;
+		Debug.Log(weaponProperties.weapon.projectileCount);
+	}
+
 	void OnEnable()
 	{
 		EventManagerIntArg.StartListening("ArrowCollide", TakeDamage);
+		EventManagerIntArg.StartListening("ArrowPickup", ArrowPickup);
 	}
 
 	void OnDisable()
 	{
 		EventManagerIntArg.StopListening("ArrowCollide", TakeDamage);
+		EventManagerIntArg.StopListening("ArrowPickup", ArrowPickup);
 	}
 }
 	
@@ -54,6 +63,7 @@ public class MovementProperties
 	public float jumpForce;
 	public int jumpCount;
 	public int numOfJumps;
+	public int maxSpeed;
 }
 
 [System.Serializable]

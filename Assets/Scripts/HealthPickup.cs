@@ -3,22 +3,22 @@ using System.Collections;
 
 public class HealthPickup : MonoBehaviour
 {
-	public float healthBonus;				// How much health the crate gives the player.
-	public AudioClip collect;				// The sound of the crate being collected.
-
-
-	private PickupSpawner pickupSpawner;	// Reference to the pickup spawner.
-	private Animator anim;					// Reference to the animator component.
-	private bool landed;					// Whether or not the crate has landed.
-
-
-	void Awake ()
-	{
-		// Setting up the references.
-		pickupSpawner = GameObject.Find("pickupManager").GetComponent<PickupSpawner>();
-		anim = transform.root.GetComponent<Animator>();
-	}
-
+//	public float healthBonus;				// How much health the crate gives the player.
+//	public AudioClip collect;				// The sound of the crate being collected.
+//
+//
+//	private PickupSpawner pickupSpawner;	// Reference to the pickup spawner.
+//	private Animator anim;					// Reference to the animator component.
+//	private bool landed;					// Whether or not the crate has landed.
+//
+//
+//	void Awake ()
+//	{
+//		// Setting up the references.
+//		pickupSpawner = GameObject.Find("pickupManager").GetComponent<PickupSpawner>();
+//		anim = transform.root.GetComponent<Animator>();
+//	}
+//
 
 	void OnTriggerEnter2D (Collider2D other)
 	{

@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ProjectilePoolScript : MonoBehaviour {
+public class ProjectilePoolScript : MonoBehaviour
+{
 
 	public static ProjectilePoolScript current;
 	public Projectile pooledObject;
@@ -11,28 +12,26 @@ public class ProjectilePoolScript : MonoBehaviour {
 
 	public Projectile[] pooledObjects;
 
-	void Awake(){
+	void Awake ()
+	{
 		current = this;
 	}
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
 		pooledObjects = new Projectile[pooledAmount];
-		for(int i = 0; i < pooledObjects.Length; i++)
-		{
-			Projectile obj = (Projectile)Instantiate(pooledObject);
-			obj.gameObject.SetActive(false);
-			pooledObjects[i] = obj;
+		for (int i = 0; i < pooledObjects.Length; i++) {
+			Projectile obj = (Projectile)Instantiate (pooledObject);
+			obj.gameObject.SetActive (false);
+			pooledObjects [i] = obj;
 		}
 	}
 
-	public Projectile getPooledProjectile() 
+	public Projectile getPooledProjectile ()
 	{
-		for(int i = 0; i < pooledObjects.Length; i++)
-		{
-			if(!pooledObjects[i].isActiveAndEnabled)
-			{
-				return pooledObjects[i];
+		for (int i = 0; i < pooledObjects.Length; i++) {
+			if (!pooledObjects [i].isActiveAndEnabled) {
+				return pooledObjects [i];
 			}
 		}
 		return null;

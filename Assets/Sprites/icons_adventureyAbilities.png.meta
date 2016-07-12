@@ -1,0 +1,633 @@
+fileFormatVersion: 2
+guid: 7209d4d1dac3443fb88cddb6c6921fcd
+timeCreated: 1468296184
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: icons_adventureyAbilities_0
+    21300002: icons_adventureyAbilities_1
+    21300004: icons_adventureyAbilities_2
+    21300006: icons_adventureyAbilities_3
+    21300008: icons_adventureyAbilities_4
+    21300010: icons_adventureyAbilities_5
+    21300012: icons_adventureyAbilities_6
+    21300014: icons_adventureyAbilities_7
+    21300016: icons_adventureyAbilities_8
+    21300018: icons_adventureyAbilities_9
+    21300020: icons_adventureyAbilities_10
+    21300022: icons_adventureyAbilities_11
+    21300024: icons_adventureyAbilities_12
+    21300026: icons_adventureyAbilities_13
+    21300028: icons_adventureyAbilities_14
+    21300030: icons_adventureyAbilities_15
+    21300032: icons_adventureyAbilities_16
+    21300034: icons_adventureyAbilities_17
+    21300036: icons_adventureyAbilities_18
+    21300038: icons_adventureyAbilities_19
+    21300040: icons_adventureyAbilities_20
+    21300042: icons_adventureyAbilities_21
+    21300044: icons_adventureyAbilities_22
+    21300046: icons_adventureyAbilities_23
+    21300048: icons_adventureyAbilities_24
+    21300050: icons_adventureyAbilities_25
+    21300052: icons_adventureyAbilities_26
+    21300054: icons_adventureyAbilities_27
+    21300056: icons_adventureyAbilities_28
+    21300058: icons_adventureyAbilities_29
+    21300060: icons_adventureyAbilities_30
+    21300062: icons_adventureyAbilities_31
+    21300064: icons_adventureyAbilities_32
+    21300066: icons_adventureyAbilities_33
+    21300068: icons_adventureyAbilities_34
+    21300070: icons_adventureyAbilities_35
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: icons_adventureyAbilities_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 418
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 418
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 418
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 418
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 418
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_5
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 418
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 338
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 338
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_8
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 338
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 338
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_10
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 338
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_11
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 338
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 258
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 258
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_14
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 258
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 258
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_16
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 258
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_17
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 258
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 178
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 178
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_20
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 178
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 178
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_22
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 178
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_23
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 178
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 98
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_25
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 98
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_26
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 98
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_27
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 98
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_28
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 98
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_29
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 98
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_30
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 18
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 18
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_32
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 18
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 18
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_34
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 18
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    - name: icons_adventureyAbilities_35
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 18
+        width: 80
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 39}
+        - {x: -40, y: -39}
+        - {x: 40, y: -39}
+        - {x: 40, y: 39}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

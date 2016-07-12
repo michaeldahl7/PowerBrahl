@@ -4,7 +4,7 @@ using System.Collections;
 [System.Serializable]
 public class Weapon : MonoBehaviour
 {
-	public GameObject prefab;
+	public Projectile prefab;
 	public Projectile projectile;
 	public int projectileCount;
 	public int projectileCapacity;
@@ -16,7 +16,13 @@ public class Weapon : MonoBehaviour
 	public Transform target;
 	public Projectile[] projectiles;
 
+	public void Attack(){
+		
+	}
 }
+
+
+
 
 
 
