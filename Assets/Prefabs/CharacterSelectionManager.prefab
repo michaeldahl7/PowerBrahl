@@ -1,54 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &114302
+--- !u!1 &160740
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 428488}
-  - 114: {fileID: 11470914}
+  - 4: {fileID: 457322}
+  - 114: {fileID: 11478774}
   m_Layer: 0
-  m_Name: BrahlGameManager
+  m_Name: CharacterSelectionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &428488
+--- !u!4 &457322
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114302}
+  m_GameObject: {fileID: 160740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.33, y: 1.26, z: 0}
+  m_LocalPosition: {x: 47.63765, y: 107.28955, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11470914
+--- !u!114 &11478774
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114302}
+  m_GameObject: {fileID: 160740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9952ad255afef498bb9b0bcf21b7bb9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e972ec03807a4a4980f17a94fad68aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arcaneyCharacterPrefab: {fileID: 11478036, guid: 44531514a53124f1d8f910637097377e,
-    type: 2}
-  adventureyCharacterPrefab: {fileID: 11434694, guid: ff1e0d02bce684577a8ff4c56e582b16,
-    type: 2}
-  nobleyCharacterPrefab: {fileID: 11436720, guid: a62b132e19ac742d690f9f36b6eca196,
-    type: 2}
-  dazzleyCharacerPrefab: {fileID: 11412052, guid: f010bb7832c864b87b77c4bddc1e12e6,
-    type: 2}
-  eventManager: {fileID: 0}
+  heroImageLocation: {fileID: 0}
+  leftCharacterSelectPanel: {fileID: 0}
+  rightCharacterSelectPanel: {fileID: 0}
+  heroImageObjectContainer:
+  - {fileID: 11416108, guid: 620d1b7327be14fdfb98c6c3f21286ea, type: 2}
+  - {fileID: 11491446, guid: 4c4222d577090482aabcf68c25ab9f9d, type: 2}
+  - {fileID: 11416426, guid: e37f07582ad764a5f8157a656c4540f0, type: 2}
+  - {fileID: 11438730, guid: 0ec5bebcc00ad4c6081e9e89525f8e2c, type: 2}
+  listOfHeroSprites: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -58,5 +58,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 114302}
+  m_RootGameObject: {fileID: 160740}
   m_IsPrefabParent: 1
